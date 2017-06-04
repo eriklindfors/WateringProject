@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -14,9 +15,8 @@ public class Main extends Application{
     static final double WIDTH = 1000;
     static final double HEIGHT = 600;
 
-    private TopMenu topmenuBar = new TopMenu();
     private LeftMenu leftMenuBar = new LeftMenu();
-    private InformationField informationField = new InformationField();
+    private StatisticsNode statisticsNode = new StatisticsNode();
 
     private ImageView background = new ImageView(new Image("greenBackground.jpg"));
 
@@ -24,6 +24,7 @@ public class Main extends Application{
     @Override
     public void start(Stage stage) throws Exception{
         Pane root = new Pane();
+        Pane center = new Pane();
         BorderPane borderPane = new BorderPane();
         borderPane.setPrefWidth(WIDTH);
         borderPane.setPrefHeight(HEIGHT);
@@ -31,11 +32,16 @@ public class Main extends Application{
         scene.setFill(Color.web("#CFF5C5"));
         stage.setScene(scene);
 
-        borderPane.setTop(topmenuBar);
+        center.getChildren().add(statisticsNode);
         borderPane.setLeft(leftMenuBar);
-        borderPane.setCenter(informationField);
+        borderPane.setCenter(center);
 
         root.getChildren().addAll(background, borderPane);
+
+        statisticsNode.setGaugeMeter(70);
+
+
+
 
         stage.show();
     }

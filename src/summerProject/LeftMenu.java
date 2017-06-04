@@ -38,6 +38,8 @@ public class LeftMenu extends StackPane {
         tt.play();
     }
 
+
+
     private class MenuButton extends StackPane{
 
         private static final double BUTTON_RADIUS = Main.WIDTH * 0.05;
