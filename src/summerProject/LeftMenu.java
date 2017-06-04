@@ -5,6 +5,7 @@ import javafx.animation.PathTransition;
 import javafx.animation.TranslateTransition;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -22,25 +23,33 @@ public class LeftMenu extends StackPane {
 
     private Rectangle background = new Rectangle((int)(MenuButton.BUTTON_RADIUS * 2 + MenuButton.BUTTON_RADIUS * 0.2),
             Main.HEIGHT);
-    private MenuButton button1 = new MenuButton("Statistics");
+    private MenuButton button1 = new MenuButton("Humidity");
     private MenuButton button2 = new MenuButton("Other");
 
     public LeftMenu(){
         vbox.getChildren().addAll(button1, button2);
         this.getChildren().addAll(background, vbox);
-        this.setTranslateX(-MenuButton.BUTTON_RADIUS);
+        this.setTranslateX(-MenuButton.BUTTON_RADIUS * 2 - MenuButton.BUTTON_RADIUS * 0.2);
         vbox.setSpacing(5);
         background.setStroke(Color.DARKGRAY);
         background.setOpacity(0.1);
+        TranslateTransition tt = new TranslateTransition(new Duration(3000), this);
 
-        TranslateTransition tt = new TranslateTransition(Duration.millis(3000), this);
         tt.setToX(0);
         tt.play();
     }
 
+    public MenuButton getFirstButton(){
+        return button1;
+    }
+    public MenuButton getSecondButton(){
+        return button2;
+    }
 
 
-    private class MenuButton extends StackPane{
+
+
+    public class MenuButton extends StackPane{
 
         private static final double BUTTON_RADIUS = Main.WIDTH * 0.05;
 

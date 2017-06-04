@@ -46,12 +46,12 @@ public class GaugeMeter extends StackPane {
         arrow.setFitHeight(windowWidth * SIZE_MODIFIER * 0.4);
         arrow.setTranslateY(windowWidth * SIZE_MODIFIER * 0.35);
 
-        a1.setFill(Color.DARKRED);
-        a2.setFill(Color.RED);
-        a3.setFill(Color.ORANGE);
-        a4.setFill(Color.YELLOW);
-        a5.setFill(Color.GREENYELLOW);
-        a6.setFill(Color.GREEN);
+        a1.setFill(Color.GREEN);
+        a2.setFill(Color.GREENYELLOW);
+        a3.setFill(Color.YELLOW);
+        a4.setFill(Color.ORANGE);
+        a5.setFill(Color.RED);
+        a6.setFill(Color.DARKRED);
         a1.setStroke(ARC_STROKE_COLOR);
         a2.setStroke(ARC_STROKE_COLOR);
         a3.setStroke(ARC_STROKE_COLOR);
