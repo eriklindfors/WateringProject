@@ -11,8 +11,8 @@ import javafx.stage.Stage;
 
 public class Main extends Application{
 
-    static final double WIDTH = 1280;
-    static final double HEIGHT = 720;
+    static final double WIDTH = 1000;
+    static final double HEIGHT = 600;
 
     private TopMenu topmenuBar = new TopMenu();
     private LeftMenu leftMenuBar = new LeftMenu();
