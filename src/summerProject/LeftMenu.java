@@ -21,32 +21,28 @@ public class LeftMenu extends StackPane {
 
     private VBox vbox = new VBox();
 
-    private Rectangle background = new Rectangle((int)(MenuButton.BUTTON_RADIUS * 2 + MenuButton.BUTTON_RADIUS * 0.2),
-            Main.HEIGHT);
+    //private Rectangle background = new Rectangle((int)(MenuButton.BUTTON_RADIUS * 2 + MenuButton.BUTTON_RADIUS * 0.2),
+    //        Main.HEIGHT);
     private MenuButton button1 = new MenuButton("Humidity");
-    private MenuButton button2 = new MenuButton("Other");
+    //private MenuButton button2 = new MenuButton("Other");
 
     public LeftMenu(){
-        vbox.getChildren().addAll(button1, button2);
-        this.getChildren().addAll(background, vbox);
-        this.setTranslateX(-MenuButton.BUTTON_RADIUS * 2 - MenuButton.BUTTON_RADIUS * 0.2);
+        vbox.getChildren().addAll(button1);
+        this.getChildren().addAll(vbox);
+        this.setTranslateY(Main.HEIGHT);
         vbox.setSpacing(5);
-        background.setStroke(Color.DARKGRAY);
-        background.setOpacity(0.1);
-        TranslateTransition tt = new TranslateTransition(new Duration(3000), this);
+        this.setTranslateX(15);
+        //background.setStroke(Color.DARKGRAY);
+        //background.setOpacity(0.1);
+        TranslateTransition tt = new TranslateTransition(new Duration(1500), this);
 
-        tt.setToX(0);
+        tt.setToY(15);
         tt.play();
     }
 
     public MenuButton getFirstButton(){
         return button1;
     }
-    public MenuButton getSecondButton(){
-        return button2;
-    }
-
-
 
 
     public class MenuButton extends StackPane{

@@ -1,6 +1,7 @@
 package summerProject;
 
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -73,7 +74,7 @@ public class StatisticsNode extends StackPane {
         });
     }
 
-    public void setGaugeMeter(double change){
-        gaugeMeter.set(change);
+    public GaugeMeter getGaugeMeter(){
+        return gaugeMeter;
     }
 }

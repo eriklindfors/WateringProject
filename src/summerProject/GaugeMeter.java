@@ -80,4 +80,8 @@ public class GaugeMeter extends StackPane {
     public void set(double value){
         arrow.setRotate(-value);
     }
+
+    public ImageView getArrow(){
+        return arrow;
+    }
 }

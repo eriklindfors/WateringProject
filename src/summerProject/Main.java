@@ -2,6 +2,7 @@ package summerProject;
 
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
+import javafx.animation.RotateTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Application;
 import javafx.geometry.Point2D;
@@ -19,8 +20,6 @@ public class Main extends Application{
 
     static final double WIDTH = 1000;
     static final double HEIGHT = 600;
-
-    private Point2D mouseLocation = new Point2D(0, 0);
 
     private LeftMenu leftMenu = new LeftMenu();
     private StatisticsNode statisticsNode = new StatisticsNode();
@@ -48,6 +47,7 @@ public class Main extends Application{
         background.setFitWidth(WIDTH);
         background.setFitHeight(HEIGHT);
 
+        //Button 1
         leftMenu.getFirstButton().setOnMouseClicked(e -> {
             FadeTransition ft = new FadeTransition(new Duration(500), statisticsNode);
             if(center.getChildren().contains(statisticsNode)){
@@ -63,6 +63,17 @@ public class Main extends Application{
                 ft.setFromValue(0);
                 ft.setToValue(1);
                 ft.play();
+            }
+        });
+
+        //Test if key pressed can move gauge arrow
+        scene.setOnKeyPressed(e -> {
+            RotateTransition rt = new RotateTransition(new Duration(1000), statisticsNode.getGaugeMeter().getArrow());
+            if(center.getChildren().contains(statisticsNode)){
+                if(e.getCode() == KeyCode.A){
+                    rt.setByAngle(90);
+                    rt.play();
+                }
             }
         });
 
