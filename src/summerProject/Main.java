@@ -1,18 +1,14 @@
 package summerProject;
 
-import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
 import javafx.animation.RotateTransition;
-import javafx.animation.TranslateTransition;
 import javafx.application.Application;
-import javafx.geometry.Point2D;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -22,7 +18,7 @@ public class Main extends Application{
     static final double HEIGHT = 600;
 
     private LeftMenu leftMenu = new LeftMenu();
-    private StatisticsNode statisticsNode = new StatisticsNode();
+    private HumidityWindow humidityWindow = new HumidityWindow(WIDTH / 2, HEIGHT / 2);
     private ImageView background = new ImageView(new Image("flowerBackground.jpg"));
 
 
@@ -49,17 +45,17 @@ public class Main extends Application{
 
         //Button 1
         leftMenu.getFirstButton().setOnMouseClicked(e -> {
-            FadeTransition ft = new FadeTransition(new Duration(500), statisticsNode);
-            if(center.getChildren().contains(statisticsNode)){
+            FadeTransition ft = new FadeTransition(new Duration(500), humidityWindow);
+            if(center.getChildren().contains(humidityWindow)){
                 ft.setFromValue(1);
                 ft.setToValue(0);
                 ft.play();
                 ft.setOnFinished(eh ->{
-                    center.getChildren().remove(statisticsNode);
+                    center.getChildren().remove(humidityWindow);
                 });
             }
             else{
-                center.getChildren().add(statisticsNode);
+                center.getChildren().add(humidityWindow);
                 ft.setFromValue(0);
                 ft.setToValue(1);
                 ft.play();
@@ -68,10 +64,10 @@ public class Main extends Application{
 
         //Test if key pressed can move gauge arrow
         scene.setOnKeyPressed(e -> {
-            RotateTransition rt = new RotateTransition(new Duration(1000), statisticsNode.getGaugeMeter().getArrow());
-            if(center.getChildren().contains(statisticsNode)){
+            RotateTransition rt = new RotateTransition(new Duration(1000), humidityWindow.getGaugeMeter().getArrow());
+            if(center.getChildren().contains(humidityWindow)){
                 if(e.getCode() == KeyCode.A){
-                    rt.setByAngle(90);
+                    rt.setByAngle(10);
                     rt.play();
                 }
             }

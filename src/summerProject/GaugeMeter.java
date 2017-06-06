@@ -72,7 +72,7 @@ public class GaugeMeter extends StackPane {
         a6.setType(ArcType.ROUND);
 
         middle.setFill(Color.WHITE);
-        middle.setStroke(Color.SILVER);
+        middle.setStroke(Color.WHITE);
         layout.getChildren().addAll(a1, a2, a3, a4, a5, a6, middle);
         this.getChildren().addAll(layout, arrow);
     }

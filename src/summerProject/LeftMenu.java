@@ -34,7 +34,7 @@ public class LeftMenu extends StackPane {
         this.setTranslateX(15);
         //background.setStroke(Color.DARKGRAY);
         //background.setOpacity(0.1);
-        TranslateTransition tt = new TranslateTransition(new Duration(1500), this);
+        TranslateTransition tt = new TranslateTransition(new Duration(2000), this);
 
         tt.setToY(15);
         tt.play();
@@ -56,14 +56,14 @@ public class LeftMenu extends StackPane {
             text = new Label(buttonText);
             text.setFont(Font.font(null, FontWeight.BOLD, 20));
             text.setTextFill(Color.WHITE);
-            background.setFill(Color.web("#B3D8A5"));
-            background.setOpacity(0.3);
+            background.setFill(Color.DARKGRAY);
+            background.setOpacity(0.6);
 
             this.setOnMousePressed(e -> {
-                background.setFill(Color.web("#97C28A"));
+                background.setFill(Color.GRAY);
             });
             this.setOnMouseReleased(e -> {
-                background.setFill(Color.web("#B3D8A5"));
+                background.setFill(Color.DARKGRAY);
             });
 
             this.getChildren().addAll(background, text);
