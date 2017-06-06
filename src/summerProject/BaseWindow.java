@@ -34,6 +34,7 @@ public class BaseWindow extends StackPane {
         innerBackground.setOpacity(0.2);
 
         setOnMousePressed(event -> {
+            this.toFront();
             mouseX = event.getSceneX() ;
             mouseY = event.getSceneY() ;
         });

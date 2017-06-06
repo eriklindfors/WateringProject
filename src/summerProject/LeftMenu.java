@@ -24,10 +24,10 @@ public class LeftMenu extends StackPane {
     //private Rectangle background = new Rectangle((int)(MenuButton.BUTTON_RADIUS * 2 + MenuButton.BUTTON_RADIUS * 0.2),
     //        Main.HEIGHT);
     private MenuButton button1 = new MenuButton("Humidity");
-    //private MenuButton button2 = new MenuButton("Other");
+    private MenuButton button2 = new MenuButton("Statistics");
 
     public LeftMenu(){
-        vbox.getChildren().addAll(button1);
+        vbox.getChildren().addAll(button1, button2);
         this.getChildren().addAll(vbox);
         this.setTranslateY(Main.HEIGHT);
         vbox.setSpacing(5);
@@ -42,6 +42,10 @@ public class LeftMenu extends StackPane {
 
     public MenuButton getFirstButton(){
         return button1;
+    }
+
+    public MenuButton getSecondButton(){
+        return button2;
     }
 
 

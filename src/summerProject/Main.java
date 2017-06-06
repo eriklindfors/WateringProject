@@ -17,9 +17,12 @@ public class Main extends Application{
     static final double WIDTH = 1000;
     static final double HEIGHT = 600;
 
+    private ImageView background = new ImageView(new Image("flowerBackground.jpg"));
+
     private LeftMenu leftMenu = new LeftMenu();
     private HumidityWindow humidityWindow = new HumidityWindow(WIDTH / 2, HEIGHT / 2);
-    private ImageView background = new ImageView(new Image("flowerBackground.jpg"));
+    private StatisticsWindow statisticsWindow = new StatisticsWindow(WIDTH / 2, HEIGHT / 2);
+
 
 
 
@@ -38,6 +41,11 @@ public class Main extends Application{
 
 
         root.getChildren().addAll(background, borderPane);
+
+        //Add PieChart data
+        statisticsWindow.addPieChartData("Apples", 20);
+        statisticsWindow.addPieChartData("Oranges", 15);
+        statisticsWindow.addPieChartData("Bananas", 4);
 
         //Background
         background.setFitWidth(WIDTH);
@@ -62,16 +70,37 @@ public class Main extends Application{
             }
         });
 
+        //Button 2
+        leftMenu.getSecondButton().setOnMouseClicked(e -> {
+            FadeTransition ft = new FadeTransition(new Duration(500), statisticsWindow);
+            if(center.getChildren().contains(statisticsWindow)){
+                ft.setFromValue(1);
+                ft.setToValue(0);
+                ft.play();
+                ft.setOnFinished(eh ->{
+                    center.getChildren().remove(statisticsWindow);
+                });
+            }
+            else{
+                center.getChildren().add(statisticsWindow);
+                ft.setFromValue(0);
+                ft.setToValue(1);
+                ft.play();
+            }
+        });
+
         //Test if key pressed can move gauge arrow
         scene.setOnKeyPressed(e -> {
-            RotateTransition rt = new RotateTransition(new Duration(1000), humidityWindow.getGaugeMeter().getArrow());
             if(center.getChildren().contains(humidityWindow)){
+                RotateTransition rt = new RotateTransition(new Duration(1000), humidityWindow.getGaugeMeter().getArrow());
                 if(e.getCode() == KeyCode.A){
                     rt.setByAngle(10);
                     rt.play();
                 }
             }
         });
+
+
 
         stage.show();
     }

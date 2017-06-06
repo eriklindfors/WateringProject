@@ -26,21 +26,18 @@ public class HumidityWindow extends BaseWindow {
         gaugeMeterName.setTextFill(Color.WHITE);
         gaugeMeterName.setTranslateY(-75);
 
-        dry.setFont(Font.font(null, FontWeight.BOLD, null, 15));
+        dry.setFont(Font.font(null, FontWeight.BOLD, null, height / 20));
         dry.setTextFill(Color.WHITE);
-        dry.setTranslateY(75);
-        dry.setTranslateX(-150);
+        dry.setTranslateY(height / 4);
+        dry.setTranslateX(-width / 3.4);
 
-        humid.setFont(Font.font(null, FontWeight.BOLD, null, 15));
+        humid.setFont(Font.font(null, FontWeight.BOLD, null, height / 20));
         humid.setTextFill(Color.WHITE);
-        humid.setTranslateY(75);
-        humid.setTranslateX(155);
-
+        humid.setTranslateY(height / 4);
+        humid.setTranslateX(width / 3.3);
 
         this.setTranslateX(Main.WIDTH * 0.10);
         this.setTranslateY(Main.HEIGHT * 0.10);
-
-        //this.setEffect(new DropShadow(2, 5, 5, Color.BLACK))
     }
 
     public GaugeMeter getGaugeMeter(){
