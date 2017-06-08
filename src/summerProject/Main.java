@@ -20,8 +20,8 @@ public class Main extends Application{
     private ImageView background = new ImageView(new Image("flowerBackground.jpg"));
 
     private LeftMenu leftMenu = new LeftMenu();
-    private HumidityWindow humidityWindow = new HumidityWindow(WIDTH / 2, HEIGHT / 2);
-    private StatisticsWindow statisticsWindow = new StatisticsWindow(WIDTH / 2, HEIGHT / 2);
+    private HumidityWindow humidityWindow = new HumidityWindow(WIDTH / 3, HEIGHT / 3);
+    private StatisticsWindow statisticsWindow = new StatisticsWindow(WIDTH / 3, HEIGHT / 3);
 
 
 
@@ -51,43 +51,9 @@ public class Main extends Application{
         background.setFitWidth(WIDTH);
         background.setFitHeight(HEIGHT);
 
-        //Button 1
-        leftMenu.getFirstButton().setOnMouseClicked(e -> {
-            FadeTransition ft = new FadeTransition(new Duration(500), humidityWindow);
-            if(center.getChildren().contains(humidityWindow)){
-                ft.setFromValue(1);
-                ft.setToValue(0);
-                ft.play();
-                ft.setOnFinished(eh ->{
-                    center.getChildren().remove(humidityWindow);
-                });
-            }
-            else{
-                center.getChildren().add(humidityWindow);
-                ft.setFromValue(0);
-                ft.setToValue(1);
-                ft.play();
-            }
-        });
-
-        //Button 2
-        leftMenu.getSecondButton().setOnMouseClicked(e -> {
-            FadeTransition ft = new FadeTransition(new Duration(500), statisticsWindow);
-            if(center.getChildren().contains(statisticsWindow)){
-                ft.setFromValue(1);
-                ft.setToValue(0);
-                ft.play();
-                ft.setOnFinished(eh ->{
-                    center.getChildren().remove(statisticsWindow);
-                });
-            }
-            else{
-                center.getChildren().add(statisticsWindow);
-                ft.setFromValue(0);
-                ft.setToValue(1);
-                ft.play();
-            }
-        });
+        //Connect left menu buttons to window nodes and add animation
+        setWindowAnimationOnMenuButtonPressed(center, leftMenu.getFirstButton(), humidityWindow);
+        setWindowAnimationOnMenuButtonPressed(center, leftMenu.getSecondButton(), statisticsWindow);
 
         //Test if key pressed can move gauge arrow
         scene.setOnKeyPressed(e -> {
@@ -100,9 +66,28 @@ public class Main extends Application{
             }
         });
 
-
-
+        stage.setTitle("My Plants");
         stage.show();
+    }
+
+    private void setWindowAnimationOnMenuButtonPressed(Pane center, LeftMenu.MenuButton button, BaseWindow baseWindow){
+        button.setOnMouseClicked(e -> {
+            FadeTransition ft = new FadeTransition(new Duration(500), baseWindow);
+            if(center.getChildren().contains(baseWindow)){
+                ft.setFromValue(1);
+                ft.setToValue(0);
+                ft.play();
+                ft.setOnFinished(eh ->{
+                    center.getChildren().remove(baseWindow);
+                });
+            }
+            else{
+                center.getChildren().add(baseWindow);
+                ft.setFromValue(0);
+                ft.setToValue(1);
+                ft.play();
+            }
+        });
     }
 
     public static void main(String[] args) {
