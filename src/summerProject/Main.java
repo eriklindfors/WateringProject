@@ -23,9 +23,6 @@ public class Main extends Application{
     private HumidityWindow humidityWindow = new HumidityWindow(WIDTH / 3, HEIGHT / 3);
     private StatisticsWindow statisticsWindow = new StatisticsWindow(WIDTH / 3, HEIGHT / 3);
 
-
-
-
     @Override
     public void start(Stage stage) throws Exception{
         Pane root = new Pane();
@@ -51,7 +48,7 @@ public class Main extends Application{
         background.setFitWidth(WIDTH);
         background.setFitHeight(HEIGHT);
 
-        //Connect left menu buttons to window nodes and add animation
+        //Connect left menu buttons to chosen window nodes and add animation
         setWindowAnimationOnMenuButtonPressed(center, leftMenu.getFirstButton(), humidityWindow);
         setWindowAnimationOnMenuButtonPressed(center, leftMenu.getSecondButton(), statisticsWindow);
 

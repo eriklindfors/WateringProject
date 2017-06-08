@@ -1,18 +1,11 @@
 package summerProject;
 
-import javafx.animation.FadeTransition;
-import javafx.animation.PathTransition;
 import javafx.animation.TranslateTransition;
-import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.MoveTo;
-import javafx.scene.shape.Path;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.util.Duration;
