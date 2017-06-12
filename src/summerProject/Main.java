@@ -14,14 +14,14 @@ import javafx.util.Duration;
 
 public class Main extends Application{
 
-    static final double WIDTH = 1000;
-    static final double HEIGHT = 600;
+    static final double WIDTH = 1280;
+    static final double HEIGHT = 800;
 
     private ImageView background = new ImageView(new Image("flowerBackground.jpg"));
 
     private LeftMenu leftMenu = new LeftMenu();
-    private HumidityWindow humidityWindow = new HumidityWindow(WIDTH / 3, HEIGHT / 3);
-    private StatisticsWindow statisticsWindow = new StatisticsWindow(WIDTH / 3, HEIGHT / 3);
+    private HumidityWindow humidityWindow = new HumidityWindow(WIDTH / 2, HEIGHT / 2);
+    private StatisticsWindow statisticsWindow = new StatisticsWindow(WIDTH / 2, HEIGHT / 2);
 
     @Override
     public void start(Stage stage) throws Exception{
@@ -36,13 +36,7 @@ public class Main extends Application{
         borderPane.setCenter(center);
         borderPane.setLeft(leftMenu);
 
-
         root.getChildren().addAll(background, borderPane);
-
-        //Add PieChart data
-        statisticsWindow.addPieChartData("Apples", 20);
-        statisticsWindow.addPieChartData("Oranges", 15);
-        statisticsWindow.addPieChartData("Bananas", 4);
 
         //Background
         background.setFitWidth(WIDTH);
